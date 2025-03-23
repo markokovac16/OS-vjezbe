@@ -1,0 +1,76 @@
+Zadatak 1:
+
+1.
+pwd
+
+2.
+ls
+
+3.
+mkdir vjezba1 && cd vjezba1
+
+4.
+touch README.md
+
+5.
+cd ..
+
+
+Zadatak 2:
+
+1.
+mkdir vjezba2 && cd vjezba2 && touch file.txt
+
+2.
+cp file.txt file_copy.txt
+
+3.
+ls
+
+4.
+rm file.txt && cd ..
+
+5.
+rmdir vjezba2
+Direktorij nije prazan te ga stoga ne mogu obrisati na ovaj način.
+
+
+Zadatak 3:
+
+1.
+mkdir vjezba3 && mkdir vjezba3/backup && cd vjezba3
+
+2.
+touch notes.txt todo.txt script.sh
+
+3.
+cp notes.txt todo.txt script.sh backup
+
+4.
+rm script.sh && ls
+
+5.
+mkdir "$PWD/backup/$USERNAME"
+
+6.
+cd backup
+mv notes.txt todo.txt script.sh "$USERNAME"
+
+
+Zadatak 4:
+
+1.
+mkdir vjezba4 && mkdir vjezba4/subfolder && cd vjezba4
+
+2.
+touch "$HOSTNAME"
+
+3.
+mv "$HOSTNAME" "$USERNAME"
+
+4.
+mv "$USERNAME" subfolder
+
+5.
+rm "$PWD/subfolder/$USERNAME"
+
