@@ -1,0 +1,28 @@
+Zadatak 1
+mkdir -p vjezba_2/data vjezba_2/backup
+cd vjezba_2/data
+touch script.js style.css .env
+echo 'console.log("Hello, World!")' > script.js
+echo 'body { background-color: #f0f0f0; }' > style.css
+echo 'VJEZBE=OS' > .env
+
+Zadatak 2
+mkdir -p ../backup
+cp -r ../data/* ../backup/
+ls -lS ../backup
+
+Zadatak 3
+cd ../data
+rm script.js style.css
+cd ..
+cp -n backup/* data/
+ls -lA data
+
+Zadatak 4
+mkdir primjer_dir
+cd primjer_dir
+mkdir dir1 dir2 dir3
+touch file1.txt file2.txt .hiddenfile
+ls -laS
+ls -lSh
+ls -lRt
