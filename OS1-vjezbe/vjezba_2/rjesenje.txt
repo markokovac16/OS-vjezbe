@@ -1,0 +1,86 @@
+Zadatak 1
+mkdir vjezba_2
+
+mkdir vjezba_2/data
+
+mkdir vjezba_2/backup
+
+cd vjezba_2/data
+
+touch script.js style.css .env
+
+echo 'console.log("Hello, World!")' > script.js
+
+echo 'body { background-color: #f0f0f0; }' > style.css
+
+echo 'VJEZBE=OS' > .env
+
+Zadatak 2
+cd ..
+
+cp -rv data/. backup/ OUTPUT: data/. -> backup/.
+data/./script.js -> backup/./script.js
+data/./.env -> backup/./.env
+data/./style.css -> backup/./style.css
+
+cd data
+
+ls -laS ../backup OUTPUT: total 24
+drwxr-xr-x@ 5 markokovac  staff  160 Apr  1 17:14 .
+drwxr-xr-x@ 4 markokovac  staff  128 Apr  1 17:13 ..
+-rw-r--r--@ 1 markokovac  staff   36 Apr  1 17:14 style.css
+-rw-r--r--@ 1 markokovac  staff   29 Apr  1 17:14 script.js
+-rw-r--r--@ 1 markokovac  staff   10 Apr  1 17:14 .env
+
+Zadatak 3
+rm -v script.js style.css
+
+cd ..
+
+cp -rnv backup/. data/ OUTPUT: backup/. -> data/.
+backup/./script.js -> data/./script.js
+data/./.env not overwritten
+backup/./style.css -> data/./style.css
+
+ls -lAt1 data OUTPUT: style.css
+script.js
+.env
+
+Zadatak 4
+cd ..
+
+mkdir primjer_dir
+
+cd primjer_dir
+
+mkdir dir1 dir2
+
+touch file1.txt file2.txt .hiddenfile
+
+touch dir1/subfile1.txt
+
+touch dir2/.hidden_subfile
+
+ls -laS OUTPUT: total 0
+drwxr-xr-x  8 markokovac  staff  256 Apr  1 17:16 ..
+drwxr-xr-x@ 7 markokovac  staff  224 Apr  1 17:16 .
+drwxr-xr-x@ 3 markokovac  staff   96 Apr  1 17:16 dir1
+drwxr-xr-x@ 3 markokovac  staff   96 Apr  1 17:16 dir2
+-rw-r--r--@ 1 markokovac  staff    0 Apr  1 17:16 .hiddenfile
+-rw-r--r--@ 1 markokovac  staff    0 Apr  1 17:16 file1.txt
+-rw-r--r--@ 1 markokovac  staff    0 Apr  1 17:16 file2.txt
+
+ls -lSh OUTPUT: total 0
+drwxr-xr-x@ 3 markokovac  staff    96B Apr  1 17:16 dir1
+drwxr-xr-x@ 3 markokovac  staff    96B Apr  1 17:16 dir2
+-rw-r--r--@ 1 markokovac  staff     0B Apr  1 17:16 file1.txt
+-rw-r--r--@ 1 markokovac  staff     0B Apr  1 17:16 file2.txt
+
+ls -Ra --color -t OUTPUT: 
+dir2        dir1        .           .hiddenfile file2.txt   file1.txt   ..
+
+./dir2:
+.               .hidden_subfile ..
+
+./dir1:
+.            subfile1.txt ..
