@@ -1,0 +1,23 @@
+Skripte treba provući kroz komandu chmod +x 'ime_skripte.sh' da bi bile runnable
+
+Nakon toga, pokreću se: 
+
+./zadatak1.sh /apsolutna/putanja/do/direktorija .sh(bilo koja file ekstenzija):
+markokovac@Markos-MacBook-Pro vjezba_3 % ./zadatak1.sh /Users/markokovac/Desktop/OS-vjezbe/OS1-vjezbe/vjezba_3 .sh 
+zadatak1.sh
+zadatak2.sh
+zadatak3.sh
+zadatak4.sh
+
+./zadatak2.sh 5 (bilo koji broj kao argument te se ispisuju brojevi od 1 do tog argumenta ako su manji ili jednaki 10)
+
+./zadatak3.sh (prolazi kroz sve datoteke u direktoriju screenshots i dodaje im prefix screenshot_N_)
+
+
+
+./zadatak4.sh ime_direktorija : 
+markokovac@Markos-MacBook-Pro vjezba_3 % ./zadatak4.sh screenshots
+  adding: screenshot_1_bash.png (stored 0%)
+  adding: screenshot_2_nano.png (stored 0%)
+  adding: screenshot_3_vim.png (stored 0%)
+Datoteke iz direktorija 'screenshots' uspješno su komprimirane u datoteku 'svi_zapisi.zip'.
