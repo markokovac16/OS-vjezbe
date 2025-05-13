@@ -1,0 +1,36 @@
+Ažurirajte lokalnu listu dostupnih paketa i verzija te nadogradite sve pakete na najnovije verzije.
+	- sudo apt update
+	- sudo apt upgrade
+
+Instalirajte paket openssh-server , pokrenite SSH poslužitelj i provjerite njegov status.
+	- sudo apt install openssh-server
+	- sudo systemctl start ssh
+	- sudo systemctl status ssh
+
+Pronađite IP adresu virtualnog stroja i provjerite koji su mrežni portovi otvoreni.
+Kako ćete provjeriti koji port koristi SSH poslužitelj?
+	- ip addr show : prikaz IP adrese
+	- sudo ss -tuln : provjera otvorenih portova
+	- grep Port /etc/ssh/sshd_config : provjera koji port koristi SSH poslužitelj
+
+Spajanje NAT + host-only adapter
+	- u VirtualBoxu prvi adapter namješten na "NAT"
+    - Dodano pravilo: 
+    Name: SSH
+    Protocol: TCP
+    Host IP: prazno
+    Host Port: 2222 (random slobodan port)
+    Guest IP: prazno
+    Guest Port: 22
+    -povezivanje naredbom : ssh marko@localhost -p 2222
+
+Spajanje korištenjem NAT adaptera i port forwardinga
+	- u VirtualBoxu prvi adapter namješten na "Bridged Adapter"
+	- u VM-u komanda ip addr show
+    - na hostu koristim taj ip u naredbi ssh marko@ip_adresa
+	
+
+Izrada bash skripte
+    -nano /home/marko/list_files.sh
+    -chmod +x /home/ime.prezime/list_files.sh
+    -/home/marko/list_files.sh
