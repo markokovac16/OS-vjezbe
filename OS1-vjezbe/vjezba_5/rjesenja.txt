@@ -1,0 +1,147 @@
+Zadatak 1.
+
+Instalacija Python3 paketa(ukljucen u install Ubuntu servera po defaultu)
+sudo apt update
+sudo apt install python3 python3-pip
+
+Stvaranje direktorija i filea 
+mkdir ~/python3
+cd ~/python3
+
+nano hello.py - skripta u folderu
+chmod +x hello.py
+python3 hello.py &
+
+sudo apt install htop
+htop
+
+htop_skripte.jpg je slika procesa
+
+PID: Jedinstveni identifikator procesa
+USER: Korisnik pod kojim se proces izvršava
+PRI/NI: Prioritet procesa i nice vrijednost
+VIRT: Virtualna memorija koju proces koristi
+RES: Fizička memorija (RAM) koju proces trenutno koristi
+SHR: Dijeljene biblioteke u memoriji
+S: Status procesa (S=sleeping, R=running, Z=zombie, etc.)
+%CPU: Postotak CPU-a koji proces koristi
+%MEM: Postotak memorije koji proces koristi
+TIME+: Ukupno CPU vrijeme koje je proces koristio
+COMMAND: Naredba koja je pokrenula proces
+
+Nacini prekidanja procesa:
+pgrep python3 - p
+kill (PID procesa)
+
+pkill -f "hello.py" za prekid specifičnog procesa kojem znamo ime
+
+killall python3 za prekid svih python3 procesa
+
+Zadatak 2.
+
+nano move_files.sh
+chmod +x move_files.sh
+
+./move_files.sh & - zadani prioritet 0
+htop
+
+nice -n 10 ./move_files.sh & - prioritet 10
+
+nice -n 1 ./move_files.sh & - prioritet 1
+Slike u folderu
+
+Zadatak 3.
+
+Stvaranje nove grupe devteam
+
+sudo groupadd devteam
+
+mkdir ~/project
+
+Dodavanje korisnika
+sudo useradd -m -s /bin/bash developer1
+sudo useradd -m -s /bin/bash developer2
+sudo useradd -m -s /bin/bash developer3
+
+Postavljanje lozinki
+sudo passwd developer1
+sudo passwd developer2
+sudo passwd developer3
+
+Dodavanje korisnika u grupu devteam
+sudo usermod -a -G devteam developer1
+sudo usermod -a -G devteam developer2
+sudo usermod -a -G devteam developer3
+
+Dodavanje sebe u grupu devteam
+sudo usermod -a -G devteam $USER
+
+Postavljanje sebe kao vlasnika i grupu devteam kao grupnog vlasnika
+sudo chown $USER:devteam ~/project
+
+
+Postavljanje dozvola
+chmod 764 ~/project
+
+7= rwx (čitanje, pisanje, izvršavanje) dodano vlasniku
+6= rw- (čitanje, pisanje) dodano grupi 
+4= r-- (čitanje) ostali
+
+ls -ld vraća
+drwxrw-r-- 2 marko devteam 4096 Jun 5 18:38 ~/project
+
+Zadatak 4.
+
+rwxr-xr-x = 755
+
+Vlasnik: rwx = 4+2+1 = 7
+Grupa: r-x = 4+0+1 = 5
+Ostali: r-x = 4+0+1 = 5
+Vlasnik ima sve dozvole, grupa i ostali mogu čitati i izvršavati
+
+rw-r--r-- = 644
+
+Vlasnik: rw- = 4+2+0 = 6
+Grupa: r-- = 4+0+0 = 4
+Ostali: r-- = 4+0+0 = 4
+Vlasnik može čitati i pisati, svi ostali samo čitati
+
+rwx------ = 700
+
+Vlasnik: rwx = 4+2+1 = 7
+Grupa: --- = 0+0+0 = 0
+Ostali: --- = 0+0+0 = 0
+Samo vlasnik ima sve dozvole, nitko drugi ne može ništa raditi
+
+rw-rw-r-- = 664
+
+Vlasnik: rw- = 4+2+0 = 6
+Grupa: rw- = 4+2+0 = 6
+Ostali: r-- = 4+0+0 = 4
+Vlasnik i grupa mogu čitati i pisati, ostali samo čitati
+
+rwxrwxrwx = 777
+
+Vlasnik: rwx = 4+2+1 = 7
+Grupa: rwx = 4+2+1 = 7
+Ostali: rwx = 4+2+1 = 7
+Svi imaju sve dozvole
+
+r--r--r-- = 444
+
+Vlasnik: r-- = 4+0+0 = 4
+Grupa: r-- = 4+0+0 = 4
+Ostali: r-- = 4+0+0 = 4
+Svi mogu samo čitati, nitko ne može pisati ili izvršavati
+
+rw------- = 600
+
+Vlasnik: rw- = 4+2+0 = 6
+Grupa: --- = 0+0+0 = 0
+Ostali: --- = 0+0+0 = 0
+Samo vlasnik može čitati i pisati, nitko drugi ne može ništa raditi
+
+
+Zadatak 5.
+
+Skripta zadatak_5.sh
